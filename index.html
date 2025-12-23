@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>RASHMIKA👰 Cricket Predictions</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",system-ui,sans-serif;
+}
+
+body{
+    background:#0a0a15 url("https://i.pinimg.com/originals/47/a2/07/47a2074a58ecefbf4474274026f20a56.gif") center/cover fixed;
+    color:#fff;
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
+}
+
+.container{
+    max-width:480px;
+    margin:auto;
+    padding:20px 15px 100px;
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* Profile */
+.profile-box{
+    text-align:center;
+    padding-top:15px;
+}
+
+.profile-box img{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,0.7);
+    object-fit:cover;
+    margin-bottom:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.5);
+}
+
+.profile-box h1{
+    font-size:1.7rem;
+    font-weight:700;
+    letter-spacing:0.5px;
+    text-shadow:1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.profile-box p{
+    font-size:1rem;
+    opacity:0.9;
+    margin-top:5px;
+}
+
+/* Stats */
+.stats-box{
+    display:flex;
+    justify-content:space-around;
+    background:rgba(255,255,255,0.1);
+    border-radius:12px;
+    padding:15px;
+    margin:10px 0;
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,0.15);
+}
+
+.stat-item{
+    text-align:center;
+    flex:1;
+}
+
+.stat-num{
+    display:block;
+    font-size:1.8rem;
+    font-weight:800;
+    color:#FF4081;
+    text-shadow:0 0 10px rgba(255,64,129,0.5);
+}
+
+.stat-label{
+    font-size:0.85rem;
+    opacity:0.9;
+    margin-top:3px;
+}
+
+/* Card */
+.card{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+}
+
+.card h2{
+    font-size:1.3rem;
+    margin-bottom:12px;
+    color:#E1BEE7;
+}
+
+/* Features */
+.features{
+    list-style:none;
+    display:grid;
+    gap:8px;
+    text-align:left;
+}
+
+.features li{
+    font-size:0.95rem;
+    opacity:0.95;
+    padding:8px 0 8px 28px;
+    position:relative;
+}
+
+.features li::before{
+    content:"✓";
+    color:#4caf50;
+    position:absolute;
+    left:0;
+    font-weight:bold;
+    font-size:1.1rem;
+}
+
+/* RGB Button */
+.btn{
+    display:block;
+    margin:14px auto 0;
+    padding:15px 25px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    border-radius:30px;
+    text-align:center;
+    transition:all 0.3s ease;
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+    letter-spacing:0.5px;
+    border:none;
+    cursor:pointer;
+    width:90%;
+    max-width:300px;
+    font-size:1.1rem;
+    
+    /* RGB Animation */
+    background: linear-gradient(90deg, 
+        #ff4081 0%, 
+        #e040fb 25%, 
+        #2196f3 50%, 
+        #0d47a1 75%, 
+        #ff4081 100%);
+    background-size: 400% 100%;
+    animation: rgbFlow 8s linear infinite;
+}
+
+@keyframes rgbFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 400% 50%; }
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 25px rgba(0,0,0,0.45);
+}
+
+.btn:active{
+    transform:translateY(0);
+}
+
+/* Info text */
+.info{
+    font-size:0.9rem;
+    opacity:0.85;
+    line-height:1.5;
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    font-size:0.85rem;
+    opacity:0.85;
+    padding:15px 0;
+}
+
+/* Fixed Mobile CTA */
+.mobile-cta{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:12px 15px;
+    background:rgba(10,10,21,0.95);
+    backdrop-filter:blur(15px);
+    z-index:100;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-cta .btn{
+    margin:0;
+    width:100%;
+    font-size:1rem;
+    padding:14px;
+}
+
+/* Responsive */
+@media(min-width:481px){
+    .container{
+        padding-top:30px;
+    }
+    .profile-box img{
+        width:130px;
+        height:130px;
+    }
+}
+
+@media(min-width:769px){
+    .mobile-cta{
+        display:none;
+    }
+}
+
+/* Telegram Icon */
+.telegram-icon{
+    display:inline-block;
+    width:20px;
+    height:20px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.06-.2s-.17-.04-.24-.02c-.1.02-1.79 1.14-5.07 3.34-.48.33-.91.49-1.3.48-.43-.01-1.27-.24-1.88-.44-.76-.24-1.36-.37-1.31-.78.03-.23.33-.47.91-.72 3.59-1.56 5.96-2.58 7.14-3.09 3.41-1.39 4.11-1.67 4.56-1.67.1 0 .33.02.48.15.13.11.16.26.18.46z'/%3E%3C/svg%3E") center/contain no-repeat;
+    margin-right:8px;
+    vertical-align:middle;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Profile -->
+    <div class="profile-box">
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/694ac5aac417e_1a8b9d37-f8ec-47ba-9aaa-ac8bdd6834bc.jpeg" alt="RASHMIKA👰 Cricket">
+        <h1>RASHMIKA👰 Cricket</h1>
+        <p>Expert Cricket Match Predictions</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-box">
+        <div class="stat-item">
+            <span class="stat-num">180K+</span>
+            <span class="stat-label">Members</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">92%</span>
+            <span class="stat-label">Accuracy</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">Daily</span>
+            <span class="stat-label">Updates</span>
+        </div>
+    </div>
+
+    <!-- Main CTA -->
+    <div class="card">
+        <h2>Cricket Match Predictions</h2>
+        <p class="info">Expert match predictions & analysis with proven accuracy</p>
+        <a href="https://t.me/+vLJ_bAQcyPMyN2Zl" class="btn">
+            <span class="telegram-icon"></span> Join Telegram Channel
+        </a>
+    </div>
+
+    <!-- Features -->
+    <div class="card">
+        <h2>What You'll Get</h2>
+        <ul class="features">
+            <li>Accurate Match Predictions</li>
+            <li>Live Match Analysis</li>
+            <li>Expert Gameplay Tips</li>
+            <li>Premium Predictions FREE</li>
+            <li>Daily Cricket Updates</li>
+        </ul>
+    </div>
+
+    <!-- Info -->
+    <div class="card">
+        <p class="info">
+            Join thousands of members who trust our cricket predictions with 92% accuracy rate. 
+            Get expert insights completely free on Telegram.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© RASHMIKA👰 Cricket Predictions 2023</p>
+    </div>
+
+</div>
+
+<!-- Mobile Fixed Button -->
+<div class="mobile-cta">
+    <a href="https://t.me/+vLJ_bAQcyPMyN2Zl" class="btn">
+        <span class="telegram-icon"></span> JOIN CHANNEL FREE
+    </a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Preload background image for smoother experience
+    const bgImg = new Image();
+    bgImg.src = "https://i.pinimg.com/originals/47/a2/07/47a2074a58ecefbf4474274026f20a56.gif";
+    
+    // Add click tracking
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // In production, add analytics here
+            console.log('Telegram channel clicked');
+        });
+    });
+    
+    // Add subtle animation to profile image on load
+    setTimeout(() => {
+        const profileImg = document.querySelector('.profile-box img');
+        if(profileImg) {
+            profileImg.style.transform = 'scale(1.05)';
+            profileImg.style.transition = 'transform 0.5s ease';
+            setTimeout(() => {
+                profileImg.style.transform = 'scale(1)';
+            }, 500);
+        }
+    }, 300);
+});
+
+// Prevent zoom on double-tap
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function(event) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+</script>
+
+</body>
+</html>
